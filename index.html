@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular navigation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <ul class="menu">
+      <div class="toggle">
+        <ion-icon name="add"></ion-icon>
+      </div>
+      <li style="--i: 0">
+        <a href="#">
+          <ion-icon name="home"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 1">
+        <a href="#">
+          <ion-icon name="person"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 2">
+        <a href="#">
+          <ion-icon name="settings"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 3">
+        <a href="#">
+          <ion-icon name="mail"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 4">
+        <a href="#">
+          <ion-icon name="videocam"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 5">
+        <a href="#">
+          <ion-icon name="key"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 6">
+        <a href="#">
+          <ion-icon name="logo-game-controller-b"></ion-icon>
+        </a>
+      </li>
+      <li style="--i: 7">
+        <a href="#">
+          <ion-icon name="camera"></ion-icon>
+        </a>
+      </li>
+    </ul>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+      let menuToggle = document.querySelector(".toggle");
+      let menu = document.querySelector(".menu");
+      let list = document.querySelectorAll("li");
+
+      menuToggle.onclick = function() {
+        menu.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+      };
+
+      list.forEach((item) =>
+        item.addEventListener("click", function() {
+          console.log(this)
+          list.forEach((i) => i.classList.remove("active"));
+          this.classList.add("active");
+        })
+      );
+    </script>
+  </body>
+</html>
